@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食事管理アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍔 食事管理アプリ</h1>
+            <p>日々のカロリーとタンパク質をローカルに記録します</p>
+        </header>
+
+        <!-- メインコンテンツ (ブロックレイアウト) -->
+        <div class="main-layout">
+            
+            <!-- 左側：入力・管理エリア -->
+            <div class="left-panel">
+                <!-- 本日の記録フォーム -->
+                <section class="card">
+                    <h2>📝 本日の食事を記録</h2>
+                    <form id="record-form">
+                        <div class="form-group">
+                            <label for="meal-name">食事名・メモ</label>
+                            <input type="text" id="meal-name" placeholder="例: 昼食、プロテインなど">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="meal-calories">カロリー (kcal)</label>
+                                <input type="number" id="meal-calories" min="0" required placeholder="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="meal-protein">タンパク質 (g)</label>
+                                <input type="number" id="meal-protein" min="0" step="0.1" required placeholder="0.0">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">記録する</button>
+                    </form>
+                </section>
+
+                <!-- mymeal（お気に入り）登録フォーム -->
+                <section class="card">
+                    <h2>⭐ mymeal (お気に入り) 登録</h2>
+                    <form id="mymeal-form">
+                        <div class="form-group">
+                            <label for="mymeal-name">メニュー名</label>
+                            <input type="text" id="mymeal-name" placeholder="例: 鶏胸肉とブロッコリー" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mymeal-calories">カロリー (kcal)</label>
+                                <input type="number" id="mymeal-calories" min="0" required placeholder="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="mymeal-protein">タンパク質 (g)</label>
+                                <input type="number" id="mymeal-protein" min="0" step="0.1" required placeholder="0.0">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">mymealに登録</button>
+                    </form>
+                </section>
+
+                <!-- mymeal 呼び出しリスト -->
+                <section class="card">
+                    <h2>📋 mymeal から入力</h2>
+                    <p class="help-text">クリックすると上の記録フォームに自動入力されます</p>
+                    <div id="mymeal-list" class="mymeal-list">
+                        <!-- JSで動的に追加 -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右側：ダッシュボード・履歴エリア -->
+            <div class="right-panel">
+                <!-- 本日の合計値 -->
+                <section class="card summary-card">
+                    <h2>📊 本日の合計摂取量</h2>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-label">総カロリー</span>
+                            <span id="total-calories" class="summary-value">0</span> <span class="unit">kcal</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">タンパク質</span>
+                            <span id="total-protein" class="summary-value">0.0</span> <span class="unit">g</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 履歴カレンダー（簡易リスト表示） -->
+                <section class="card">
+                    <h2>📅 日別ログ履歴</h2>
+                    <div class="history-controls">
+                        <label for="history-date">日付選択:</label>
+                        <input type="date" id="history-date">
+                    </div>
+                    <div class="log-container">
+                        <h3>この日の食事明細</h3>
+                        <ul id="log-list" class="log-list">
+                            <!-- JSで動的に追加 -->
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

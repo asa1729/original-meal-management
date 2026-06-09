@@ -1,0 +1,254 @@
+/* -------------------------------------------------------------------------- */
+/* 基本スタイルとリセット */
+/* -------------------------------------------------------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e1e4e6;
+    padding-bottom: 15px;
+}
+
+header h1 {
+    margin: 0 0 5px 0;
+    color: #2c3e50;
+    font-size: 24pt;
+}
+
+header p {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 11pt;
+}
+
+/* -------------------------------------------------------------------------- */
+/* レイアウト（ブロックデザイン、Flex/GridはWeasy経由ではないので通常Web用として利用可ですが、
+   シンプルな入れ子ブロックベースの2カラムを表現します） */
+/* -------------------------------------------------------------------------- */
+.main-layout {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .main-layout {
+        display: flex;
+        gap: 24px;
+    }
+    .left-panel, .right-panel {
+        flex: 1;
+    }
+}
+
+/* -------------------------------------------------------------------------- */
+/* カードデザイン */
+/* -------------------------------------------------------------------------- */
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 24px;
+    border: 1px solid #e1e4e6;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 14pt;
+    color: #2c3e50;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+}
+
+.card h3 {
+    font-size: 11pt;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.help-text {
+    font-size: 9pt;
+    color: #95a5a6;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* フォーム要素 */
+/* -------------------------------------------------------------------------- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 10pt;
+    color: #4f5f6f;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd1d9;
+    border-radius: 4px;
+    font-size: 11pt;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ボタン */
+/* -------------------------------------------------------------------------- */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 4px;
+    font-size: 11pt;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #27ae60;
+}
+
+.btn-secondary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #2980b9;
+}
+
+/* -------------------------------------------------------------------------- */
+/* mymeal リスト & ログリスト */
+/* -------------------------------------------------------------------------- */
+.mymeal-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mymeal-item {
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 10pt;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mymeal-item:hover {
+    background-color: #3498db;
+    color: white;
+    border-color: #3498db;
+}
+
+.log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.log-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ecf0f1;
+    font-size: 10.5pt;
+    display: flex;
+    justify-content: space-between;
+}
+
+.log-list li:last-child {
+    border-bottom: none;
+}
+
+/* -------------------------------------------------------------------------- */
+/* ダッシュボード集計 */
+/* -------------------------------------------------------------------------- */
+.summary-card {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.summary-card h2 {
+    color: white;
+    border-left-color: #e67e22;
+}
+
+.summary-grid {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.summary-item {
+    text-align: center;
+}
+
+.summary-label {
+    display: block;
+    font-size: 10pt;
+    color: #bac4cc;
+    margin-bottom: 5px;
+}
+
+.summary-value {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.unit {
+    font-size: 11pt;
+    color: #bac4cc;
+}
+
+.history-controls {
+    margin-bottom: 15px;
+}
